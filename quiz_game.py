@@ -120,20 +120,30 @@ class QuizGame:
         print(f"\n  퀴즈를 시작합니다! (총 {total}문제)")
         print("----------------------------------------")
 
-        for i, quiz in enumerate(quizzes, 1):
-            quiz.display(number=i)
-            answer = get_valid_input("  정답 입력: ", 1, 4)
+        answered = 0
+        try:
+            for i, quiz in enumerate(quizzes, 1):
+                quiz.display(number=i)
+                answer = get_valid_input("  정답 입력: ", 1, 4)
+                answered += 1
 
-            if quiz.check_answer(answer):
-                print("  정답입니다!")
-                correct += 1
-            else:
-                print(f"  오답입니다. 정답은 {quiz.answer}번입니다.")
+                if quiz.check_answer(answer):
+                    print("  정답입니다!")
+                    correct += 1
+                else:
+                    print(f"  오답입니다. 정답은 {quiz.answer}번입니다.")
 
-            print("----------------------------------------")
+                print("----------------------------------------")
+        except (KeyboardInterrupt, EOFError):
+            print(f"\n\n  퀴즈를 중단합니다. ({answered}문제까지 진행)")
+            if answered == 0:
+                return
 
-        score = int(correct / total * 100)
-        print(f"\n  결과: {total}문제 중 {correct}문제 정답! ({score}점)")
+        if answered == 0:
+            return
+
+        score = int(correct / answered * 100)
+        print(f"\n  결과: {answered}문제 중 {correct}문제 정답! ({score}점)")
 
         if self.best_score is None or score > self.best_score:
             self.best_score = score
