@@ -153,20 +153,24 @@ class QuizGame:
     def add_quiz(self):
         print("\n  새로운 퀴즈를 추가합니다.\n")
 
-        question = input("  문제를 입력하세요: ").strip()
-        if question == "":
-            print("  문제가 비어 있어 추가를 취소합니다.")
-            return
-
-        choices = []
-        for i in range(1, 5):
-            choice = input(f"  선택지 {i}: ").strip()
-            if choice == "":
-                print("  선택지가 비어 있어 추가를 취소합니다.")
+        try:
+            question = input("  문제를 입력하세요: ").strip()
+            if question == "":
+                print("  문제가 비어 있어 추가를 취소합니다.")
                 return
-            choices.append(choice)
 
-        answer = get_valid_input("  정답 번호 (1-4): ", 1, 4)
+            choices = []
+            for i in range(1, 5):
+                choice = input(f"  선택지 {i}: ").strip()
+                if choice == "":
+                    print("  선택지가 비어 있어 추가를 취소합니다.")
+                    return
+                choices.append(choice)
+
+            answer = get_valid_input("  정답 번호 (1-4): ", 1, 4)
+        except (KeyboardInterrupt, EOFError):
+            print("\n\n  퀴즈 추가를 취소합니다.")
+            return
 
         new_quiz = Quiz(question, choices, answer)
         self.quizzes.append(new_quiz)
