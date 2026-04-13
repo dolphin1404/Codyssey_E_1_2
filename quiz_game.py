@@ -261,6 +261,12 @@ class QuizGame:
 
         try:
             index = get_valid_input("\n  삭제할 퀴즈 번호: ", 1, len(self.quizzes))
+            target = self.quizzes[index - 1]
+            print(f"\n  \"{target.question}\" 을(를) 삭제하시겠습니까?")
+            confirm = input("  (y/n): ").strip().lower()
+            if confirm != "y":
+                print("  삭제를 취소합니다.")
+                return
         except (KeyboardInterrupt, EOFError):
             print("\n\n  삭제를 취소합니다.")
             return
