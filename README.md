@@ -1,5 +1,13 @@
 # Python 퀴즈 게임
 
+## 프로젝트 개요
+
+Python으로 만든 콘솔 기반 퀴즈 게임입니다. 터미널에서 실행하여 퀴즈를 풀고, 새로운 퀴즈를 추가하며, 최고 점수를 관리할 수 있습니다. 프로그램을 종료해도 데이터가 유지됩니다.
+
+## 퀴즈 주제 선정 이유
+
+**Python 프로그래밍**을 주제로 선정했습니다. 이 과제를 수행하면서 Python 문법을 직접 사용하고 있기 때문에, 퀴즈 내용과 학습 내용이 자연스럽게 연결되어 복습 효과를 얻을 수 있습니다.
+
 ## 실행 방법
 
 ```bash
@@ -32,6 +40,14 @@ Codyssey_E_1_2/
 ├── .gitignore       # Git 제외 파일 목록
 └── README.md        # 프로젝트 설명
 ```
+
+## Git 수행
+### git clone
+<img width="651" height="128" alt="스크린샷 2026-04-13 오후 5 33 11" src="https://github.com/user-attachments/assets/b50f1ff4-d8bc-453a-8d8c-e3295a966622" />
+
+### git pull
+<img width="542" height="115" alt="스크린샷 2026-04-13 오후 5 36 00" src="https://github.com/user-attachments/assets/de6e4ae8-b2d8-419c-a193-9b5c935ded0d" />
+
 
 ## 데이터 파일 설명
 
